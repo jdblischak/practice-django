@@ -1,0 +1,8 @@
+name: dj
+channels:
+  - conda-forge
+dependencies:
+  - autopep8
+  - django=2.2.2
+  - ipython
+  - pylint
