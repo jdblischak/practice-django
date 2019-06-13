@@ -6,4 +6,5 @@ dependencies:
   - django=2.2.2
   - django-taggit=0.24.0
   - ipython
+  - markdown=2.6.11
   - pylint
