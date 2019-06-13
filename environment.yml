@@ -4,5 +4,6 @@ channels:
 dependencies:
   - autopep8
   - django=2.2.2
+  - django-taggit=0.24.0
   - ipython
   - pylint
