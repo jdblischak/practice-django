@@ -1,4 +1,4 @@
-app := blog
+app := account
 
 options:
 	echo "run, shell, migrate, update"
