@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     # default authentication URL patterns
     path('', include('django.contrib.auth.urls')),
+    path('register/', views.register, name='register'),
 ]
