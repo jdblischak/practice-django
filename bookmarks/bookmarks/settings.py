@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from django.core.exceptions import ImproperlyConfigured
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -133,6 +134,28 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Add email authentication in additional to default method (p. 134)
 AUTHENTICATION_BACKENDS = [
-       'django.contrib.auth.backends.ModelBackend',
-       'account.authentication.EmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
 ]
+
+# Use environment variables for loading secrets
+# Code snippet based on post from Daniel Roy Greenfeld
+# https://www.pydanny.com/using-executable-code-outside-version-control.html
+
+
+def get_env_var(var_name):
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = f'Set the {var_name} environment variable'
+        raise ImproperlyConfigured(error_msg)
+
+
+# Obtain settings for Bookmarks app at URL below:
+# https://developers.facebook.com/apps/2637851352962069/settings/basic/
+# Facebook App ID
+SOCIAL_AUTH_FACEBOOK_KEY = get_env_var('SOCIAL_AUTH_FACEBOOK_KEY')
+# Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SECRET = get_env_var('SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
