@@ -137,6 +137,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
 ]
 
 # Use environment variables for loading secrets
@@ -152,10 +153,17 @@ def get_env_var(var_name):
         raise ImproperlyConfigured(error_msg)
 
 
-# Obtain settings for Bookmarks app at URL below:
+# Obtain settings for Bookmarks Facebook app at URL below:
 # https://developers.facebook.com/apps/2637851352962069/settings/basic/
 # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_KEY = get_env_var('SOCIAL_AUTH_FACEBOOK_KEY')
+#SOCIAL_AUTH_FACEBOOK_KEY = get_env_var('SOCIAL_AUTH_FACEBOOK_KEY')
 # Facebook App Secret
-SOCIAL_AUTH_FACEBOOK_SECRET = get_env_var('SOCIAL_AUTH_FACEBOOK_SECRET')
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+#SOCIAL_AUTH_FACEBOOK_SECRET = get_env_var('SOCIAL_AUTH_FACEBOOK_SECRET')
+#SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+# Obtain settings for Bookmarks-JDB Twitter app at URL below:
+# https://developer.twitter.com/en/apps/16904022
+# Twitter Consumer Key
+SOCIAL_AUTH_TWITTER_KEY = get_env_var('SOCIAL_AUTH_TWITTER_KEY')
+# Twitter Consumer Secret
+SOCIAL_AUTH_TWITTER_SECRET = get_env_var('SOCIAL_AUTH_TWITTER_SECRET')
