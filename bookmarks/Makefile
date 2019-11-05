@@ -11,7 +11,7 @@ shell:
 	python manage.py shell
 
 migrate:
-	python manage.py makemigrations $(app)
+	python manage.py makemigrations
 	python manage.py migrate
 
 update:
