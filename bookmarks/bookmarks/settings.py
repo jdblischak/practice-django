@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 from django.core.exceptions import ImproperlyConfigured
+from django.urls import reverse_lazy
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -177,3 +178,8 @@ def get_env_var(var_name):
 #SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = get_env_var('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 # Google Consumer Secret
 #SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = get_env_var('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}
