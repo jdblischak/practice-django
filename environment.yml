@@ -15,6 +15,8 @@ dependencies:
   - psycopg2
   - pylint
   - python
+  - redis
+  - redis-py
   - social-auth-app-django=3.1.0
   - pip:
       - sorl-thumbnail==12.5.0
