@@ -8,6 +8,7 @@ dependencies:
   - ipython
   - libpq
   - markdown=2.6.11
+  - nginx
   - pillow=6.2.1
   - pip
   - postgresql
@@ -18,5 +19,6 @@ dependencies:
   - redis
   - redis-py
   - social-auth-app-django=3.1.0
+  - uwsgi
   - pip:
       - sorl-thumbnail==12.5.0
