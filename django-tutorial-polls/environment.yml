@@ -1,0 +1,8 @@
+name: polls
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - django=3.0.2=py38_0
+  - pip=19.3.1=py38_0
+  - python=3.8.1=h5c2c468_1
